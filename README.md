@@ -1,7 +1,7 @@
 # 🚀End-to-End Retail Data Engineering Platform
 Transforming Raw Transactional Data into Strategic Behavioral Insights
 
-**📋Executive Summary**
+***📋Executive Summary***
 
 
 
@@ -13,7 +13,7 @@ The goal was not just to store data, but to build a pipeline that transforms ope
 
 
 
-**🏗️ Architecture & Modules**
+## **🏗️ Architecture & Modules**
 
 
 
@@ -21,7 +21,7 @@ This repository is organized into five core modules, representing the lifecycle 
 
 
 
-**📂 01-SQL-Optimization**
+### **📂 01-SQL-Optimization**
 
 *High-Performance OLTP Tuning*
 
@@ -32,7 +32,7 @@ This repository is organized into five core modules, representing the lifecycle 
 
 
 
-**📂 02-Distributed-Architecture**
+### **📂 02-Distributed-Architecture**
 
 *Horizontal Scaling & Sharding*
 - Challenge: The monolithic database could not sustain the write-throughput of concurrent store transactions.
@@ -41,7 +41,7 @@ This repository is organized into five core modules, representing the lifecycle 
 
 
 
-**📂 03-NoSQL-Integration**
+### **📂 03-NoSQL-Integration**
 
 *Flexible Customer Data Modeling*
 - Challenge: The relational model was too rigid to capture dynamic customer profiles and nested interaction logs.
@@ -49,7 +49,7 @@ This repository is organized into five core modules, representing the lifecycle 
 - Outcome: Enabled fast, single-read retrieval of complex customer histories without expensive SQL joins, facilitating real-time profile lookups.
 
 
-**📂 04-ETL-Data-Warehousing**
+### **📂 04-ETL-Data-Warehousing**
 
 *Business Intelligence & Dimensional Modeling*
 
@@ -63,13 +63,9 @@ This repository is organized into five core modules, representing the lifecycle 
   
 - Outcome: Empowered stakeholders to visualize KPI trends, such as "Average Order Value (AOV) by Day" and "Month-over-Month Growth by Channel."
 
-
-
-**📂 05-Big-Data-Analytics**
+### **📂 05-Big-Data-Analytics**
 
 *Spark SQL & Behavioral Analysis*
-
-
 
 - Challenge: Traditional BI tools could not process millions of clickstream and cart events to understand why users were not buying.
 - Solution:
@@ -80,25 +76,7 @@ This repository is organized into five core modules, representing the lifecycle 
   - Uncovered Cross-Sell opportunities: Identified high-intent products (viewed but not bought) for specific customer segments using Anti-Joins.
 
 
-
-**🛠️ Tech Stack**
-
-
-- Relational Database: PostgreSQL (Local & Distributed/Citus).
-
-- NoSQL Database: MongoDB (Atlas).
-
-- ETL & Orchestration: Pentaho Data Integration (Spoon).
-
-- Big Data Processing: Apache Spark (PySpark & Spark SQL) on Databricks.
-
-- Visualization: Metabase / Power BI.
-
-- Languages: SQL.
-
-
-
-**📉 Key Business Insights Uncovered**
+## **📉 Key Business Insights Uncovered**
 
 Through this engineering pipeline, we moved from "guessing" to "knowing":
 
@@ -113,8 +91,22 @@ Through this engineering pipeline, we moved from "guessing" to "knowing":
 
 - **Channel Behavior**: The BI layer revealed distinct growth patterns between Online and Physical stores, allowing for channel-specific inventory optimization.
 
+## **🛠️ Tech Stack**
 
 
-👤 Author
+- Relational Database: PostgreSQL (Local & Distributed/Citus).
+
+- NoSQL Database: MongoDB (Atlas).
+
+- ETL & Orchestration: Pentaho Data Integration (Spoon).
+
+- Big Data Processing: Apache Spark (PySpark & Spark SQL) on Databricks.
+
+- Visualization: Metabase / Power BI.
+
+- Languages: SQL.
+  
+
+#### 👤 Author
 
 Isabella Rondón - *Data Analyst | BI Developer | Big Data Enthusiast*
