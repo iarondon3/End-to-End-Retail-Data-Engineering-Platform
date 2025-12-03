@@ -48,9 +48,8 @@ Key bottlenecks identified: Seq Scan on detalle_venta and Seq Scan on venta.
 ### 2. The Solution: Indexing Foreign Keys
 We identified two missing indexes critical for filtering and joining:
 
-Filtering Sales by Customer (id_cliente).
-
-Joining Sales Details by Sale ID (id_venta).
+ - Filtering Sales by Customer (id_cliente).
+ - Joining Sales Details by Sale ID (id_venta).
 
 ```sql
 -- Index 1: To quickly find sales for a specific customer
@@ -86,5 +85,13 @@ The engine switched to Bitmap Index Scan and Index Scan, eliminating the full ta
       Execution Time: 0.160 ms
 
 ### 🚀 Performance Impact
-   - **Latency Reduction**: Dropped from 0.567 ms to 0.160 ms ***(72% improvement)***.
-   - **Scalability**: By removing the Sequential Scans, the query complexity dropped from Linear O(N) to Logarithmic O(log N), ensuring stability even if the database grows to millions of rows.
+The results from the `EXPLAIN ANALYZE` output confirm the effectiveness of the indexing strategy, even on a smaller staging dataset.
+
+* **Latency Reduction:** Execution time dropped from **0.567 ms** to **0.160 ms**, representing a **72% improvement** in speed.
+* **Optimizer Efficiency:** The PostgreSQL query planner **naturally preferred** the Index Scan over the Sequential Scan without requiring forced hints (`enable_seqscan=off`). This indicates that the index correctly drastically reduced the cost of retrieval.
+* **Scalability:** The execution plan shifted from linear complexity **O(N)** (reading all rows) to logarithmic complexity **O(log N)** (tree traversal). This ensures that even as the database grows to millions of rows, the lookup for a specific customer will remain virtually instantaneous.
+
+### 🏁 Conclusion
+By analyzing the query execution plan, we identified that joining transactional tables (`venta`, `detalle_venta`) was the primary bottleneck due to repeated full table scans. 
+
+Implementing targeted B-Tree indexes on the foreign keys (`id_cliente` and `id_venta`) allowed the database engine to perform precise **Bitmap Index Scans** and **Index Scans**, eliminating unnecessary I/O overhead. This optimization is critical for the scalability of the Customer 360° Dashboard.
