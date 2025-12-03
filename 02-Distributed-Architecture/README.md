@@ -1,17 +1,18 @@
 # 🌐 Unit 2: Distributed Database Architecture
 
 ## 📌 Overview
-In this module, we transitioned the monolithic PostgreSQL database into a **Distributed Cluster** using **Citus** extension. The goal was to achieve horizontal scalability to support the growing number of transactions across multiple countries.
+In this module, we transitioned the monolithic PostgreSQL database into a **Distributed Cluster** using the **Citus** extension. The goal was to achieve horizontal scalability to support the growing transaction volume across multiple countries (Spain, Colombia, Mexico, Chile).
 
-**Objective:** Implement a **Sharded Architecture** using the **Citus** extension to distribute data and processing across multiple nodes, ensuring high availability, scalability and maintaining data consistency.
+**Objective:** Distribute the write load across multiple nodes while maintaining data consistency and minimizing network latency.
 
 ## 🛠️ Key Techniques Applied
-* **Horizontal Sharding:** Partitioned data across multiple nodes based on a strategic Shard Key (`id_sucursal`).
-* **Query Routing:** Optimized queries to target specific shards (Router Execution) vs. cross-shard aggregation (Gather Execution).
-* **High Availability:** Configured replication factors to ensure zero downtime in case of node failure.
+* **Horizontal Sharding:** Partitioned data across 4 worker nodes based on a composite key including `id_pais` (Country ID).
+* **Shard Key Strategy:** Selected `(id_pais, id_sucursal)` as the distribution key to isolate data by geography.
+* **Co-location:** Enforced that related data (Sales, Details, Products) resides on the same node to allow local joins without network overhead.
+* **Query Routing:** Analyzed the performance difference between **Co-located Joins** (local execution) and **Repartition Joins** (heavy data movement).
 
 ## 📄 Files in this Folder
-* `sharding_architecture.md`: A deep dive into the distribution strategy, showing the table conversion code and query execution plans in a distributed environment.
+* `sharding_architecture.md`: A technical walkthrough of the cluster setup (Docker Compose), the sharding implementation code, and a deep-dive performance analysis of distributed queries.
 
 ---
 *Return to [Main Portfolio](../README.md)*
