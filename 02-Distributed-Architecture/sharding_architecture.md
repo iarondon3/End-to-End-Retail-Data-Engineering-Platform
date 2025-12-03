@@ -92,6 +92,10 @@ We forced a join without using the distribution key, simulating a poorly designe
 SET citus.enable_repartition_joins = on;
 SELECT ... FROM venta t1 INNER JOIN sucursal t2 ON t1.id_sucursal = t2.id_sucursal;
 ```
+EXPLAIN ANALYZED 
+
+![Evidence of Co-located Join](./explain_analyze_repartition.png)
+
 
 **Results:**
 
