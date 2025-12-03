@@ -3,7 +3,7 @@
 ## 📌 Overview
 In this module, we transitioned the monolithic PostgreSQL database into a **Distributed Cluster** using **Citus** extension. The goal was to achieve horizontal scalability to support the growing number of transactions across multiple countries.
 
-**Objective:** Distribute the write load across multiple nodes while maintaining data consistency.
+**Objective:** Implement a **Sharded Architecture** using the **Citus** extension to distribute data and processing across multiple nodes, ensuring high availability, scalability and maintaining data consistency.
 
 ## 🛠️ Key Techniques Applied
 * **Horizontal Sharding:** Partitioned data across multiple nodes based on a strategic Shard Key (`id_sucursal`).
