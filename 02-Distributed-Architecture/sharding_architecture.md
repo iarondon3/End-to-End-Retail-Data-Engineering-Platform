@@ -11,7 +11,6 @@
 We provisioned a 5-node cluster: 1 Coordinator and 4 Workers.
 
 ```yaml
-version: '3'
 services:
   # --- COORDINATOR NODE ---
   citus_coordinator:
