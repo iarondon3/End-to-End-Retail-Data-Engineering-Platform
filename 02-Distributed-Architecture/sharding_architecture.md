@@ -38,6 +38,7 @@ networks:
 ## 2. The Distribution Strategy
 To ensure scalability and performance, we applied different distribution strategies based on the table size and usage patterns.
 
+
 ### A. Distributed Tables (Sharding)
 For massive transactional tables, we modified the primary keys to include the Country ID (`id_pais`) to enforce data locality.
 
