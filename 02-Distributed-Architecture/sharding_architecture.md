@@ -36,11 +36,13 @@ networks:
   citusnet:
 ```
 ### 2. The Distribution Strategy
-To ensure that all data related to a specific store stays together, we modified the primary keys to include the Country ID.
+To ensure scalability and performance, we applied different distribution strategies based on the table size and usage patterns.
 
-Shard Key: id_pais (Country ID).
+#### A. Distributed Tables (Sharding)
+For massive transactional tables, we modified the primary keys to include the Country ID (`id_pais`) to enforce data locality.
 
-Goal: Co-location. All sales, details, and products for "Mexico" must live on the same node.
+* **Shard Key:** `id_pais` (Country ID).
+* **Goal:** Co-location. All sales, details, and products for "Mexico" must live on the same physical node.
 
 ```sql
 -- 1. Modify Primary Keys to include the Distribution Column
@@ -54,10 +56,19 @@ SELECT create_distributed_table('sucursal', 'id_pais');
 -- We enforce that other tables are co-located with 'sucursal'
 SELECT create_distributed_table('venta', 'id_pais', colocate_with => 'sucursal');
 SELECT create_distributed_table('detalle_venta', 'id_pais', colocate_with => 'sucursal');
+```
 
--- 3. Reference Tables
--- Small tables like 'metodo_pago' are replicated to ALL nodes for fast local joins.
+### B. Reference Tables (Replication)
+For smaller, static tables like metodo_pago (Payment Methods) and cupon (Coupons), sharding provides no benefit. Instead, we treated them as Reference Tables.
+
+Strategy: These tables are replicated to every worker node.
+
+Benefit: Since the data exists on every node, distributed tables (like venta) can join with them locally without generating any network traffic.
+
+```sql
+-- Replicate small dimension tables to all nodes
 SELECT create_reference_table('metodo_pago');
+SELECT create_reference_table('cupon');
 ```
 
 ### 3. Performance Analysis: Co-located vs. Repartition Join
