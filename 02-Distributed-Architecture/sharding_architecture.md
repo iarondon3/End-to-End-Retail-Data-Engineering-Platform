@@ -7,7 +7,7 @@
 
 ---
 
-### 1. Infrastructure as Code (Docker Compose)
+## 1. Infrastructure as Code (Docker Compose)
 We provisioned a 5-node cluster: 1 Coordinator and 4 Workers.
 
 ```yaml
@@ -35,10 +35,10 @@ services:
 networks:
   citusnet:
 ```
-### 2. The Distribution Strategy
+## 2. The Distribution Strategy
 To ensure scalability and performance, we applied different distribution strategies based on the table size and usage patterns.
 
-#### A. Distributed Tables (Sharding)
+### A. Distributed Tables (Sharding)
 For massive transactional tables, we modified the primary keys to include the Country ID (`id_pais`) to enforce data locality.
 
 * **Shard Key:** `id_pais` (Country ID).
@@ -71,10 +71,10 @@ SELECT create_reference_table('metodo_pago');
 SELECT create_reference_table('cupon');
 ```
 
-### 3. Performance Analysis: Co-located vs. Repartition Join
+## 3. Performance Analysis: Co-located vs. Repartition Join
 We executed a complex query calculating Profit by Country and Channel to test the architecture.
 
-#### ✅ Scenario A: Co-located Join (The Optimized Way)
+### ✅ Scenario A: Co-located Join (The Optimized Way)
 All tables were joined on the distribution key (id_pais).
 
 ```sql
@@ -96,7 +96,7 @@ EXPLAIN ANALYZED
 - Execution Strategy: The coordinator pushed the query down to each worker. Each worker processed its own country data locally and sent back only the final 4 rows.
 - Conclusion: This demonstrates the power of sharding. The cluster processes in parallel with zero cross-node data movement.
 
-#### ⚠️ Scenario B: Repartition Join (The Unoptimized Way)
+### ⚠️ Scenario B: Repartition Join (The Unoptimized Way)
 We forced a join without using the distribution key, simulating a poorly designed query.
 ```sql
 -- Query forced to repartition
