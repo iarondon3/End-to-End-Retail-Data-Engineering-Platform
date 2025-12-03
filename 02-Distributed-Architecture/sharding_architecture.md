@@ -106,7 +106,7 @@ EXPLAIN ANALYZED
 ![Evidence of Co-located Join](./explain_analyze_colocated2.png)
 ![Evidence of Co-located Join](./explain_analyze_colocated3.png)
 
-**Results:**
+### **Results:**
 
 - Network Traffic: Only 212 bytes transferred.
 - Execution Strategy: The coordinator pushed the query down to each worker. Each worker processed its own country data locally and sent back only the final 4 rows.
@@ -124,7 +124,7 @@ EXPLAIN ANALYZED
 ![Evidence of Co-located Join](./explain_analyze_repartition.png)
 
 
-**Results:**
+### **Results:**
 
 - Execution Time: 989.8 ms (vs ~2ms per worker in Scenario A).
 - Data Movement: Massive. Workers had to shuffle data across the network to find matching rows on other nodes.
