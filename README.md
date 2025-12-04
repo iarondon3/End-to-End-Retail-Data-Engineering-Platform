@@ -101,7 +101,7 @@ Through this engineering pipeline, we moved from "guessing" to "knowing":
 
 - Big Data Processing: Apache Spark (PySpark & Spark SQL) on Databricks.
 
-- Visualization: Metabase / Power BI.
+- Visualization: Metabase.
 
 - Languages: SQL.
   
