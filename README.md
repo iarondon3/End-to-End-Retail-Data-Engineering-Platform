@@ -49,8 +49,7 @@ This repository is organized into five core modules, representing the lifecycle 
 - Outcome: Enabled fast, single-read retrieval of complex customer histories without expensive SQL joins, facilitating real-time profile lookups.
 
 
-### **📂  [04-ETL-Data-Warehousing](./04-ETL-Data-Warehousing)**
-
+### **📂  [04-ETL-Data-Warehousing](./04-ETL-Data-Warehousing)** 
 *Business Intelligence & Dimensional Modeling*
 
 - Challenge: Operational data was siloed and optimized for writing, not reading/reporting.
@@ -63,7 +62,7 @@ This repository is organized into five core modules, representing the lifecycle 
   
 - Outcome: Empowered stakeholders to visualize KPI trends, such as "Average Order Value (AOV) by Day" and "Month-over-Month Growth by Channel."
 
-### **📂 [05-Big-Data-Analytics](./05-Big-Data-Analytics)**
+### **📂  [05-Big-Data-Analytics](./05-Big-Data-Analytics)**
 
 *Spark SQL & Behavioral Analysis*
 
