@@ -12,7 +12,7 @@ In this module, we transitioned the monolithic PostgreSQL database into a **Dist
 * **Query Routing:** Analyzed the performance difference between **Co-located Joins** (local execution) and **Repartition Joins** (heavy data movement).
 
 ## 📄 Files in this Folder
-* `sharding_architecture.md`: A technical walkthrough of the cluster setup (Docker Compose), the sharding implementation code, and a deep-dive performance analysis of distributed queries.
+***[`sharding_architecture.md`](./sharding_architecture.md)**: A technical walkthrough of the cluster setup (Docker Compose), the sharding implementation code, and a deep-dive performance analysis of distributed queries.
 
 ---
 *Return to [Main Portfolio](../README.md)*
