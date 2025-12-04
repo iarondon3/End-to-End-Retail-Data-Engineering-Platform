@@ -12,7 +12,7 @@ While the previous modules focused on data storage and architecture, this module
 * **Visualization:** Built an interactive dashboard in **Metabase** to track KPIs like AOV, Gross Margin, and Sales Trends.
 
 ## 📄 Files in this Folder
-* `etl_bi_showcase.md`: A visual walkthrough of the Data Model, the ETL logic applied, and the final Business Intelligence dashboard.
+**[`etl_bi_showcase.md`](./etl_bi_showcase.md)**: A visual walkthrough of the Data Model, the ETL logic applied, and the final Business Intelligence dashboard.
 
 ---
 *Return to [Main Portfolio](../README.md)*
