@@ -41,3 +41,6 @@ Notice how `Client`, `Branch` (Sucursal), and `Invoice` (Factura) details are em
     "pais": "Colombia"
   }
 }
+```
+
+![Evidence of mongo_squema](./mongo_squema.png)
