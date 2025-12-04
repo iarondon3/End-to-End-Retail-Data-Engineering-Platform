@@ -1,9 +1,11 @@
 # 🐘 Big Data & Behavioral Analytics Showcase
 
 ## 📉 Scenario: Simulating & Diagnosing Scale
+
 **The Context:** To test the architecture's limits, we moved beyond the small operational dataset. Since real-world "Big Data" was unavailable, we needed to simulate a high-volume e-commerce environment.
 
 **The Solution: Synthetic Data Engineering**
+
 We developed a **Python script using the `Faker` library** to generate over **1.1 Million synthetic events** (Clickstream, Cart Interactions, Payment Logs). This allowed us to:
 1.  Stress-test the Spark cluster with massive datasets.
 2.  Perform complex joins typically required in production environments.
