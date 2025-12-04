@@ -1,4 +1,4 @@
-# 🚀End-to-End Retail Data Engineering Platform
+# 🚀End-to-End-Retail-Data-Ecosystem
 Transforming Raw Transactional Data into Strategic Behavioral Insights
 
 ***📋Executive Summary***
