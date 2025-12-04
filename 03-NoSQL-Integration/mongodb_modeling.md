@@ -7,7 +7,7 @@
 
 ---
 
-### 1. Data Modeling: The "Embedding" Strategy
+## 1. Data Modeling: The "Embedding" Strategy
 Instead of normalizing data into separate collections, we **embedded** related information directly into the `Sales` document. This allows us to retrieve a complete transaction snapshot in a **single read operation**.
 
 #### ✅ The `Sales` Document Schema
@@ -44,3 +44,49 @@ Notice how `Client`, `Branch` (Sucursal), and `Invoice` (Factura) details are em
 ```
 ### ***MongoDB Squema***
 ![Evidence of mongo_squema](./mongo_squema.png)
+
+## 2. Analytics with Aggregation Pipelines
+We leveraged MongoDB's Aggregation Framework to generate insights without needing an external BI tool.
+
+### 📊 Query 1: Sales Count by Channel (Store vs. Online)
+A simple but powerful grouping operation to measure channel performance.
+
+```java
+db.getCollection('venta').aggregate([
+  {
+    $group: {
+      _id: '$canalVenta',
+      totalVentas: { $sum: 1 }
+            }
+  }
+                                   ])
+```
+
+### 🛒 Query 2: Average Basket Size per Customer
+This advanced query calculates the average number of items a customer buys per visit. It demonstrates the use of $addFields to calculate a derived metric before grouping.
+
+```java
+db.getCollection('venta').aggregate([
+  {
+    // Step 1: Calculate total items in the current cart
+    $addFields: {
+      unidadesTotalesPorVenta: {
+        $sum: '$detalleVentas.cantidad_vendida'
+      }
+    }
+  },
+  {
+    // Step 2: Group by Customer and calculate their average
+    $group: {
+      _id: {
+        nombre: '$cliente.nombre',
+        apellido: '$cliente.apellido'
+      },
+      cestaPromedioUnidades: {
+        $avg: '$unidadesTotalesPorVenta'
+      }
+    }
+  },
+  { $sort: { cestaPromedioUnidades: -1 } }
+])
+```
