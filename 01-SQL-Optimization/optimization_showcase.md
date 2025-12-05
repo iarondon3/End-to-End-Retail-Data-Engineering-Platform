@@ -29,7 +29,7 @@ ORDER BY total_gastado DESC;
 
 Key bottlenecks identified: Seq Scan on detalle_venta and Seq Scan on venta.
 
-| EXPLIAN ANALYZED | 
+| EXPLAIN ANALYZED | 
 | ------------- | 
        Sort  (cost=95.89..95.91 rows=6 width=112)
         Sort Key: (sum(((dv.cantidad_vendida)::numeric * (p.precio_unitario)::numeric))) DESC
@@ -66,7 +66,7 @@ After applying the indexes, we executed the exact same query.
 
 The engine switched to Bitmap Index Scan and Index Scan, eliminating the full table reads.
 
-| EXPLIAN ANALYZED | 
+| EXPLAIN ANALYZED | 
 | ------------- | 
       Sort  (cost=37.37..37.39 rows=6 width=112)
         Sort Key: (sum(((dv.cantidad_vendida)::numeric * (p.precio_unitario)::numeric))) DESC
