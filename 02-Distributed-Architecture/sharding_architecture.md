@@ -8,48 +8,17 @@
 ---
 
 ## 1. Infrastructure as Code (Docker Compose)
-We provisioned a 5-node cluster: 1 Coordinator and 4 Workers.
+We provisioned a **5-node cluster** managed via Docker Compose. You can inspect the full infrastructure configuration file here:
 
-```yaml
-services:
-  # --- COORDINATOR NODE ---
-  citus_coordinator:
-    image: citusdata/citus:12.1
-    container_name: citus_coordinator
-    ports: ["5437:5432"]
-    environment:
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: 0000 
-      POSTGRES_DB: coorddb
-    networks: [citusnet]
+### 📂 [View Docker Compose Configuration](./docker-compose.yml)
 
-  # --- WORKER NODES (1 to 4) ---
-  citus_worker_1:
-    image: citusdata/citus:12.1
-    container_name: citus_worker_1
-    environment:
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: 0000 
-      POSTGRES_DB: coorddb
-    volumes:
-      - pg_data_citus_worker_1:/var/lib/postgresql/data
-      - ./init/init_citus/worker:/docker-entrypoint-initdb.d
-    networks:
-      - citusnet
+**Cluster Topology:**
+* **1 Coordinator Node:** The entry point for applications. Stores metadata and routes queries.
+* **4 Worker Nodes:** Each worker represents a distinct country
 
-  
-  # ... (Workers 2, 3, and 4 follow the same configuration)
+---
 
-volumes:
-  pg_data_citus_coord:
-  pg_data_citus_worker_1:
-  pg_data_citus_worker_2:
-  pg_data_citus_worker_3:
-  pg_data_citus_worker_4:
 
-networks:
-  citusnet:
-```
 ## 2. The Distribution Strategy
 To ensure scalability and performance, we applied different distribution strategies based on the table size and usage patterns.
 
