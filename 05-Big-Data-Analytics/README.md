@@ -11,7 +11,10 @@ The traditional Data Mart answered "What happened?". In this module, we transiti
 * **Spark SQL & Complex Logic:** Executed advanced queries involving **CTEs**, **Anti-Joins**, and **Union** operations to reconstruct user sessions across disparate event logs.
 * **Diagnostic Analytics:** Identified critical data integrity issues and bottlenecks in the conversion funnel.
 
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1yQs3jyuxpd3wldkmq9ha2wfPygZ54xnb#scrollTo=qY4EFE4WATmY)
+
 ## 📄 Files in this Folder
+* **[`spark_analytics_lab.ipynb`](./spark_analytics_lab.ipynb)**: 🌟 **Interactive Big Data Lab.** A PySpark notebook that generates 50k+ raw event logs, executes data engineering transformations, and visualizes the conversion funnel using Plotly. **(Click the Badge above to run).**
 **[`spark_analytics_showcase.md`](./spark_analytics_showcase.md)**: A detailed walkthrough of the behavioral analysis, featuring the "Broken Funnel" diagnosis and the Cross-Selling recommendation engine.
 
 ---
