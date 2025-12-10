@@ -30,7 +30,7 @@ The goal was not just to store data, but to build a pipeline that transforms ope
 | :--- | :--- | :--- | :--- |
 | **00** | **Data Generation Pipeline** | Python, Faker, Pandas | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1d5HqYy7v3fKrU-zRBrxEW8AnAtk_gic8?usp=drive_link)|
 | **01** | **SQL Optimization & Tuning** | PostgreSQL, Indexing | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1f_EAGTVF8MTHsQNBM_mxVcyChgx9OyOd?usp=drive_link)|
-| **02** | **Distributed Architecture** | Citus (Sharding), Docker | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1bX7tYgi34FtqaQzeatN5pf6vN-6cEx7d?usp=drive_link)|
+| **02** | **Distributed Architecture** | Citus (Sharding), Docker | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1bX7tYgi34FtqaQzeatN5pf6vN-6cEx7d?usp=sharing)|
 | **03** | **NoSQL Integration (ETL)** | MongoDB, Python ETL | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1tlTGU8N8uUloPpfxdKSdtA7okvKdAdHh?usp=drive_link)|
 | **04** | **Data Warehousing & BI** | DuckDB, Star Schema | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1IUhApOP9g4f8o9TobiKzsigJ1jxARklb?usp=drive_link)|
 | **05** | **Big Data Analytics** | Apache Spark, PySpark | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1yQs3jyuxpd3wldkmq9ha2wfPygZ54xnb?usp=drive_link)|
