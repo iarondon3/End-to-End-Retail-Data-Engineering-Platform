@@ -81,8 +81,8 @@ The goal was not just to store data, but to build a pipeline that transforms ope
 
 Specialized in bridging the gap between business strategy and technical implementation. Passionate about building scalable data architectures that drive business intelligence.
 
-[![LinkedIn](https://img.shields.io/badge/Connect-LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](PEGAR_TU_LINK_DE_LINKEDIN_AQUI)
-[![GitHub Portfolio](https://img.shields.io/badge/Visit-Portfolio-181717?style=for-the-badge&logo=github&logoColor=white)]([PEGAR_TU_LINK_DEL_REPO_O_PERFIL_AQUI](https://github.com/iarondon3)) 
+[![LinkedIn](https://img.shields.io/badge/Connect-LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/isabella-rondon-rojas-/)
+[![GitHub Portfolio](https://img.shields.io/badge/Visit-Portfolio-181717?style=for-the-badge&logo=github&logoColor=white)]((https://github.com/iarondon3)) 
 
 
 
